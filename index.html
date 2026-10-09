@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#e51e35">
+  <meta name="description" content="Uwaga! Rodzinka Cichy nadlatuje! Odliczamy do wspólnej Wigilii i planujemy rodzinne atrakcje.">
+  <title>Uwaga! Rodzinka Cichy nadlatuje! 🎄</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23e51e35'/%3E%3Cpath d='M16 4 6 20h7v7h6v-7h7Z' fill='white'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="style.css">
+  <script src="countdown.js" defer></script>
+  <script src="config.js" defer></script>
+  <script src="attractions.js" defer></script>
+  <script src="party.js" defer></script>
+</head>
+<body>
+  <main class="page">
+    <header class="masthead"><span class="wordmark">ŚWIĘTA<span>.EXE</span></span><div class="header-tools"><span class="edition">WIGILIA 2026</span><button id="motion-toggle" class="motion-toggle" type="button" aria-pressed="false" hidden>Zatrzymaj animacje</button></div></header>
+    <section class="arrival" aria-labelledby="headline">
+      <p class="eyebrow">🎅 OPERACJA: ŚWIĄTECZNY ZLOT</p>
+      <div class="party-stickers" aria-hidden="true"><div class="santa-sticker"><img class="party-gif" src="assets/santa-disco.gif" width="800" height="600" alt=""><span class="still-santa">🎅</span><span class="sticker-caption">MIKOŁAJ JUŻ GRZEJE PARKIET</span></div><span class="hoho-sticker">HO.<br>HO.<br>HOOO!</span></div>
+      <h1 id="headline">UWAGA!<br><em>RODZINKA CICHY<br>NADLATUJE!</em></h1>
+      <div class="bottle-party" aria-hidden="true"><span>🍾</span><span>🍾</span><span>🍾</span><span>🍾</span></div>
+      <div class="countdown" role="timer" aria-label="Czas do przylotu rodziny">
+        <div class="unit"><span class="number" id="days">—</span><span class="label">dni</span></div>
+        <span class="separator" aria-hidden="true">:</span>
+        <div class="unit"><span class="number" id="hours">—</span><span class="label">godzin</span></div>
+        <span class="separator" aria-hidden="true">:</span>
+        <div class="unit"><span class="number" id="minutes">—</span><span class="label">minut</span></div>
+        <span class="separator" aria-hidden="true">:</span>
+        <div class="unit"><span class="number" id="seconds">—</span><span class="label">sekund</span></div>
+      </div>
+      <noscript><p class="noscript">Przylot: 24 grudnia 2026, godz. 11:45 w Polsce. Włącz JavaScript, aby zobaczyć odliczanie.</p></noscript>
+    </section>
+    <div class="party-ticker" aria-hidden="true"><div class="ticker-track"><span>🎄 PIEROGI W GOTOWOŚCI &nbsp; 🍾 &nbsp; RODZINKA CICHY W DRODZE &nbsp; ✦ &nbsp; ZERO CICHEJ NOCY &nbsp; 🍾 &nbsp; </span><span>🎄 PIEROGI W GOTOWOŚCI &nbsp; 🍾 &nbsp; RODZINKA CICHY W DRODZE &nbsp; ✦ &nbsp; ZERO CICHEJ NOCY &nbsp; 🍾 &nbsp; </span></div></div>
+    <figure class="family-picture">
+      <img src="assets/ekipa.png" width="1312" height="1199" alt="Dwóch mężczyzn w strojach Mikołaja przy świątecznym stole, z kieliszkami i butelką Białego Bociana." loading="lazy" decoding="async">
+    </figure>
+    <section class="ticket" aria-label="Planowany przylot">
+      <div class="ticket-title"><span>LOT SPECJALNY: RODZINNY DESANT</span><span aria-hidden="true">✈</span></div>
+      <div class="ticket-body">
+        <div class="airport"><span class="airport-code">LTN</span><span>Londyn Luton</span></div>
+        <div class="route" aria-hidden="true"><span class="route-line"></span><span>✈</span><span class="route-line"></span></div>
+        <div class="airport destination"><span class="airport-code">KTW</span><span>Katowice</span></div>
+        <div class="flight-date"><time datetime="2026-12-24T11:45:00+01:00">24 grudnia 2026<strong>11:45</strong></time><span>planowany przylot · czas w Polsce</span></div>
+      </div>
+    </section>
+    <section class="attractions" aria-labelledby="attractions-heading">
+      <div class="attractions-header"><h2 id="attractions-heading">Atrakcje 🔥</h2><span class="attractions-caption">Dawaj pomysły.</span></div>
+      <p class="attractions-status" id="attractions-status" role="status">Łączenie ze wspólną listą…</p>
+      <form id="family-access" hidden>
+        <label for="family-code">Kod rodzinnej listy</label>
+        <div class="form-row"><input id="family-code" type="password" required autocomplete="off" placeholder="Kod od organizatora" maxlength="100"><button type="submit">Otwórz listę</button></div>
+      </form>
+      <div id="attractions-content" hidden>
+        <form id="attraction-form">
+          <label for="attraction-title">Twój pomysł</label>
+          <div class="form-row"><input id="attraction-title" required maxlength="200" placeholder="Np. planszówki, spacer, lepienie pierogów…"><button type="submit">Dodaj atrakcję</button></div>
+          <label class="author-label" for="attraction-author">Podpis <span>(opcjonalnie)</span></label>
+          <input id="attraction-author" maxlength="40" placeholder="Jak masz na imię?" autocomplete="given-name">
+        </form>
+        <div class="list-heading"><span>Nasze plany</span><button id="refresh-attractions" type="button" class="text-button">Odśwież listę</button></div>
+        <p id="attractions-empty" hidden>Tu jeszcze wieje nudą. Kto wrzuca pierwszy pomysł?</p>
+        <ul id="attractions-list" class="attractions-list"></ul>
+      </div>
+      <noscript><p>Włącz JavaScript, aby otworzyć wspólną listę i dodać pomysł.</p></noscript>
+    </section>
+    <div class="party-signoff" aria-hidden="true"><img class="party-gif" src="assets/santa-disco.gif" width="800" height="600" alt="" loading="lazy"><span class="still-santa">🎅</span><span>PLAN JEST PROSTY.<br><strong>MA BYĆ WESOŁO.</strong></span></div>
+    <p class="asset-credit">GIF: <a href="https://www.pinterest.com/pin/855050679290008135/" target="_blank" rel="noopener noreferrer">źródło animacji Mikołaja</a></p>
+  </main>
+</body>
+</html>
